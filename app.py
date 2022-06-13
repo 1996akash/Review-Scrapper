@@ -4,7 +4,7 @@ import requests
 from bs4 import BeautifulSoup as bs
 from urllib.request import urlopen as uReq
 
-app = Flask(__name__)
+app = Flask(__name__) # object of the class
 
 @app.route('/',methods=['GET'])  # route to display the home page
 @cross_origin()
@@ -14,6 +14,7 @@ def homePage():
 @app.route('/review',methods=['POST','GET']) # route to show the review comments in a web UI
 @cross_origin()
 def index():
+    
     if request.method == 'POST':
         try:
             searchString = request.form['content'].replace(" ","")
